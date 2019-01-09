@@ -30,3 +30,16 @@ test('Should be under 1600', () => {
 test('There is no I in Team', () => {
   expect('teami').not.toMatch(/I/);
 })
+
+test('Admin should be in usernames', () => {
+  usernames = ['join', 'karen', 'admin'];
+  expect(usernames).toContain('admin')
+})
+
+test('user fetched name should be leanne Graham', () => {
+  expect.assertions(1);
+  return functions.fetchUser()
+  .then(data => {
+    expect(data.name).toEqual('Leanne Graham')
+  })
+})
